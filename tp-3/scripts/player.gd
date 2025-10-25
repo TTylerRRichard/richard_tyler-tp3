@@ -8,10 +8,8 @@ func _ready():
 
 func _physics_process(delta): 
 	player_movement(delta)
-	
+
 func player_movement(_delta):
-	# ✅ ADD THIS: reset velocity each frame
-	velocity = Vector2.ZERO
 
 	if Input.is_action_pressed("ui_right"):
 		current_dir = "right"
@@ -40,14 +38,14 @@ func player_movement(_delta):
 		play_anim(0)
 		velocity.x = 0
 		velocity.y = 0
-	
-	# ✅ Keep this as is (it uses built-in velocity)
+
+
 	move_and_slide()
 
 func play_anim(movement):
 	var dir = current_dir
 	var anim = $AnimatedSprite2D
-	
+
 	if dir == "right":
 		anim.flip_h = false
 		if movement == 1:
