@@ -1,12 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://2jxkmftufvfd"]
+[gd_scene load_steps=8 format=3 uid="uid://2jxkmftufvfd"]
 
 [ext_resource type="Script" uid="uid://1bbvusjcvc7h" path="res://scripts/main_menu.gd" id="1_bqqt6"]
-[ext_resource type="Texture2D" uid="uid://drl64xt0jqqtr" path="res://assets/images/Tiles/Assets/Background_2.png" id="1_l6cm7"]
-[ext_resource type="FontFile" uid="uid://bs7i4icm6m5hd" path="res://assets/fonts/new_romantics/ROMANTIC.TTF" id="2_ekxnf"]
 [ext_resource type="AudioStream" uid="uid://dys1t80ln2mph" path="res://assets/audio/besieged-castle-397025.mp3" id="4_wu84c"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ekxnf"]
-texture = ExtResource("1_l6cm7")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wu84c"]
 
@@ -117,7 +114,6 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 5
 theme_override_constants/shadow_offset_y = 6
-theme_override_fonts/font = ExtResource("2_ekxnf")
 theme_override_font_sizes/font_size = 100
 text = "The running samurai"
 
@@ -125,7 +121,6 @@ text = "The running samurai"
 stream = ExtResource("4_wu84c")
 volume_db = -10.295
 autoplay = true
-bus = &"music"
 
 [connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

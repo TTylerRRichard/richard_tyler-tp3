@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const speed = 100
 var current_dir = "none"
-
+@onready var run: AudioStreamPlayer = $run
 func _ready():
 	$AnimatedSprite2D.play("front_idle")
 
@@ -16,6 +16,7 @@ func player_movement(_delta):
 		play_anim(1)
 		velocity.x = speed
 		velocity.y = 0
+
 
 	elif Input.is_action_pressed("ui_left"):
 		play_anim(1)
@@ -34,6 +35,7 @@ func player_movement(_delta):
 		current_dir = "up"
 		velocity.y = -speed
 		velocity.x = 0
+
 	else:
 		play_anim(0)
 		velocity.x = 0
