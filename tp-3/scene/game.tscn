@@ -126,6 +126,10 @@ sources/0 = SubResource("TileSetAtlasSource_xwcet")
 [node name="game" type="Node2D"]
 y_sort_enabled = true
 
+[node name="player" parent="." instance=ExtResource("1_pjass")]
+z_index = 2
+position = Vector2(33, 200)
+
 [node name="base" type="TileMapLayer" parent="."]
 y_sort_enabled = true
 position = Vector2(-989, 240)
@@ -138,7 +142,3 @@ y_sort_enabled = true
 position = Vector2(19, 137)
 tile_map_data = PackedByteArray("AAAWAAoAAAAAAAUAAAADAAsAAAAAAAUAAAALAAQAAAAAAAUAAAAGAAAAAAAAAAUAAAAWAP//AAAAAAUAAAAPAAsAAAAAAAUAAAAIAAsAAAAGAAcAAAAFAAMAAAAGAAcAAAAQAAMAAAAGAAcAAAAYAAYAAAAIAAYAAAANAAAAAAAIAAYAAAAAAAUAAAAAAAAAAAAZAAUAAAAAAAAAAAALAAwAAAAAAAEAAAAVAAYAAAAAAAEAAAAQAAEAAAAAAAEAAAAJAAEAAAAAAAEAAAAAAAcAAAAAAAEAAAASAAEAAAAFAAAAAAAGAAwAAAAKAAcAAAACAAAAAAAKAAcAAAASAAsAAAAKAAcAAAA=")
 tile_set = SubResource("TileSet_p1ry8")
-
-[node name="player" parent="." instance=ExtResource("1_pjass")]
-z_index = 2
-position = Vector2(33, 200)
