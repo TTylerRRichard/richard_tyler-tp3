@@ -1,7 +1,26 @@
-[gd_scene load_steps=21 format=3 uid="uid://cn6kxfrrj7jwd"]
+[gd_scene load_steps=21 format=3 uid="uid://dknufcsrd3ecd"]
 
-[ext_resource type="Script" uid="uid://olef8bnf6wxx" path="res://scene/enemy.gd" id="1_f87vc"]
 [ext_resource type="Texture2D" uid="uid://bi8i22gi4hbx2" path="res://assets/images/sprites/characters/slime.png" id="1_h08p8"]
+
+[sub_resource type="GDScript" id="GDScript_h08p8"]
+script/source = "extends CharacterBody2D
+
+var speed = 25
+var player_chase = false
+var player = null
+
+func _physics_process(delta):
+	if player_chase:
+		position += (player.position - position)/speed
+
+func _on_detection_area_body_entered(body: Node2D) -> void:
+	player = body
+	player_chase = true
+
+func _on_detection_area_body_exited(body: Node2D) -> void:
+	player = null
+	player_chase = false
+"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f87vc"]
 atlas = ExtResource("1_h08p8")
@@ -132,7 +151,7 @@ radius = 61.0082
 [sub_resource type="CircleShape2D" id="CircleShape2D_65i8h"]
 
 [node name="enemy" type="CharacterBody2D"]
-script = ExtResource("1_f87vc")
+script = SubResource("GDScript_h08p8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ysr33")
