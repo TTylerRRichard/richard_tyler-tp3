@@ -415,9 +415,10 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hjaqi"]
-radius = 8.06226
+radius = 5.0
 
 [node name="player" type="CharacterBody2D"]
+light_mask = 3
 y_sort_enabled = true
 collision_layer = 3
 collision_mask = 3
@@ -432,6 +433,7 @@ frame_progress = 0.254567
 offset = Vector2(0, -15)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
 shape = SubResource("CircleShape2D_hjaqi")
 
 [node name="Camera2D" type="Camera2D" parent="."]

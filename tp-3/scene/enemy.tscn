@@ -1,26 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://dknufcsrd3ecd"]
+[gd_scene load_steps=21 format=3 uid="uid://cn6kxfrrj7jwd"]
 
+[ext_resource type="Script" uid="uid://p54qy6xcuase" path="res://scene/enemy.gd" id="1_f87vc"]
 [ext_resource type="Texture2D" uid="uid://bi8i22gi4hbx2" path="res://assets/images/sprites/characters/slime.png" id="1_h08p8"]
-
-[sub_resource type="GDScript" id="GDScript_h08p8"]
-script/source = "extends CharacterBody2D
-
-var speed = 25
-var player_chase = false
-var player = null
-
-func _physics_process(delta):
-	if player_chase:
-		position += (player.position - position)/speed
-
-func _on_detection_area_body_entered(body: Node2D) -> void:
-	player = body
-	player_chase = true
-
-func _on_detection_area_body_exited(body: Node2D) -> void:
-	player = null
-	player_chase = false
-"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f87vc"]
 atlas = ExtResource("1_h08p8")
@@ -149,14 +130,14 @@ animations = [{
 radius = 61.0082
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_65i8h"]
+radius = 7.0
 
 [node name="enemy" type="CharacterBody2D"]
-script = SubResource("GDScript_h08p8")
+script = ExtResource("1_f87vc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ysr33")
-animation = &"walk"
-frame_progress = 0.161784
+animation = &"idle"
 offset = Vector2(0, -6)
 
 [node name="detection_area" type="Area2D" parent="."]
@@ -164,9 +145,12 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+light_mask = 2
+visibility_layer = 2
 shape = SubResource("CircleShape2D_jl0n1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
 shape = SubResource("CircleShape2D_65i8h")
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
