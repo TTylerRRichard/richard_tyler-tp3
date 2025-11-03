@@ -11,17 +11,13 @@ config_version=5
 [application]
 
 config/name="tp-3"
-run/main_scene="uid://b6145s6ao3llk"
+run/main_scene="uid://2jxkmftufvfd"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 global="*res://scripts/global.gd"
-
-[display]
-
-window/stretch/scale=0.82
 
 [input]
 
