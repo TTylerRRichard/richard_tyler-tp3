@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://2jxkmftufvfd"]
+[gd_scene load_steps=9 format=3 uid="uid://2jxkmftufvfd"]
 
 [ext_resource type="Script" uid="uid://1bbvusjcvc7h" path="res://scripts/main_menu.gd" id="1_bqqt6"]
-[ext_resource type="AudioStream" uid="uid://dys1t80ln2mph" path="res://assets/audio/besieged-castle-397025.mp3" id="4_wu84c"]
+[ext_resource type="Texture2D" uid="uid://cpdmtcsqlsexv" path="res://assets/images/sprites/tilesets/grass.png" id="2_2fwvj"]
+[ext_resource type="AudioStream" uid="uid://y2na8qndnre4" path="res://assets/audio/medieval-adventure-154671.mp3" id="3_2fwvj"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ekxnf"]
 
@@ -45,6 +46,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bqqt6")
+
+[node name="Grass" type="Sprite2D" parent="."]
+position = Vector2(419, 305)
+scale = Vector2(434.424, 100)
+texture = ExtResource("2_2fwvj")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -101,7 +107,7 @@ text = "Quit
 "
 
 [node name="music" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_wu84c")
+stream = ExtResource("3_2fwvj")
 volume_db = -10.295
 autoplay = true
 

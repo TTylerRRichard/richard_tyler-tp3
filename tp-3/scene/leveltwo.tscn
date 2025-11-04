@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://b52htldtsaman"]
+[gd_scene load_steps=25 format=4 uid="uid://b52htldtsaman"]
 
 [ext_resource type="Script" uid="uid://bgo725els54h4" path="res://scripts/leveltwo.gd" id="1_4ubpb"]
 [ext_resource type="Texture2D" uid="uid://cpdmtcsqlsexv" path="res://assets/images/sprites/tilesets/grass.png" id="1_xfvps"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://njc2570fr5f5" path="res://assets/images/sprites/tilesets/fences.png" id="7_gpysq"]
 [ext_resource type="PackedScene" uid="uid://cn6kxfrrj7jwd" path="res://scene/enemy.tscn" id="7_gwptc"]
 [ext_resource type="PackedScene" uid="uid://cwpf3metbuijl" path="res://scene/player.tscn" id="9_gpysq"]
+[ext_resource type="PackedScene" uid="uid://dl45qrspuyoso" path="res://scene/coin.tscn" id="11_m556r"]
+[ext_resource type="AudioStream" uid="uid://y2na8qndnre4" path="res://assets/audio/medieval-adventure-154671.mp3" id="12_sx2hl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gwptc"]
 texture = ExtResource("1_xfvps")
@@ -529,6 +531,12 @@ position = Vector2(300, 221)
 [node name="enemy4" parent="." instance=ExtResource("7_gwptc")]
 position = Vector2(-18, 214)
 
+[node name="enemy5" parent="." instance=ExtResource("7_gwptc")]
+position = Vector2(284, -29)
+
+[node name="enemy6" parent="." instance=ExtResource("7_gwptc")]
+position = Vector2(445, 124)
+
 [node name="collisions" type="StaticBody2D" parent="."]
 position = Vector2(-110, 102)
 
@@ -537,6 +545,7 @@ position = Vector2(-3, -32)
 polygon = PackedVector2Array(1, -2, 1, -134, 673, -134, 673, 219, 1, 219, 1, 86, -91, 89, -88, -16, 4, -7, -6, -22, -106, -22, -119, 139, 62, 278, 746, 238, 719, -155, 426, -168, -21, -156, -6, -29)
 
 [node name="player" parent="." instance=ExtResource("9_gpysq")]
+z_index = -1
 position = Vector2(-110, 115)
 
 [node name="leveltwo_exitpoint" type="Area2D" parent="."]
@@ -545,6 +554,27 @@ position = Vector2(6, 0)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="leveltwo_exitpoint"]
 position = Vector2(-153.5, 107.5)
 shape = SubResource("RectangleShape2D_gpysq")
+
+[node name="coin" parent="." instance=ExtResource("11_m556r")]
+position = Vector2(33, 76)
+
+[node name="coin2" parent="." instance=ExtResource("11_m556r")]
+position = Vector2(172, 57)
+
+[node name="coin3" parent="." instance=ExtResource("11_m556r")]
+position = Vector2(108, 199)
+
+[node name="coin4" parent="." instance=ExtResource("11_m556r")]
+position = Vector2(388, -29)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(225, 109)
+zoom = Vector2(1.66, 1.66)
+
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_sx2hl")
+volume_db = -10.667
+autoplay = true
 
 [connection signal="body_entered" from="leveltwo_exitpoint" to="." method="_on_leveltwo_exitpoint_body_entered"]
 [connection signal="body_exited" from="leveltwo_exitpoint" to="." method="_on_leveltwo_exitpoint_body_exited"]
