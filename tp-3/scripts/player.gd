@@ -11,6 +11,7 @@ var attack_ip = false
 const speed = 100
 var current_dir = "none"
 @onready var run: AudioStreamPlayer = $run
+@onready var attack_sfx: AudioStreamPlayer = $attack
 @onready var collision = $CollisionShape2D
 
 func _ready():
@@ -30,7 +31,7 @@ func _physics_process(delta):
 		self.queue_free()
 
 func player_movement(_delta):
-
+	var moving = false
 
 		
 	if Input.is_action_pressed("ui_right"):
@@ -38,31 +39,40 @@ func player_movement(_delta):
 		play_anim(1)
 		velocity.x = speed
 		velocity.y = 0
-
+		moving = true
 
 	elif Input.is_action_pressed("ui_left"):
 		play_anim(1)
 		current_dir = "left"
 		velocity.x = -speed
 		velocity.y = 0
+		moving = true
 
 	elif Input.is_action_pressed("ui_down"):
 		play_anim(1)
 		current_dir = "down"
 		velocity.y = speed
 		velocity.x = 0
+		moving = true
 
 	elif Input.is_action_pressed("ui_up"):
 		play_anim(1)
 		current_dir = "up"
 		velocity.y = -speed
 		velocity.x = 0
+		moving = true
 
 	else:
 		play_anim(0)
 		velocity.x = 0
 		velocity.y = 0
 
+	if moving:
+		if not run.playing:
+			run.play()
+	else:
+		if run.playing:
+			run.stop()
 
 	move_and_slide()
 
@@ -126,10 +136,16 @@ func _on_attack_cooldown_timeout():
 	
 func attack():
 	var dir = current_dir
+
+	
 	
 	if Input.is_action_just_pressed("attack"):
 		global.player_current_attack = true
 		attack_ip = true
+		
+		if not attack_sfx.playing:
+			attack_sfx.play()
+		
 		if dir == "right":
 			$AnimatedSprite2D.flip_h = false
 			$AnimatedSprite2D.play("side_attack")

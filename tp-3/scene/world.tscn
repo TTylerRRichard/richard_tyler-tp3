@@ -552,20 +552,21 @@ polygon = PackedVector2Array(0, -2, 640, 1, 640, 148, 709, 147, 709, 205, 638, 2
 position = Vector2(626.5, 64)
 shape = SubResource("RectangleShape2D_hcb8y")
 
-[node name="coin" parent="." instance=ExtResource("8_y3jn2")]
+[node name="coin" parent="." groups=["coins"] instance=ExtResource("8_y3jn2")]
 position = Vector2(59, 86)
 
-[node name="coin2" parent="." instance=ExtResource("8_y3jn2")]
+[node name="coin2" parent="." groups=["coins"] instance=ExtResource("8_y3jn2")]
 position = Vector2(165, 130)
 
-[node name="coin3" parent="." instance=ExtResource("8_y3jn2")]
+[node name="coin3" parent="." groups=["coins"] instance=ExtResource("8_y3jn2")]
 position = Vector2(144, 15)
 
-[node name="coin4" parent="." instance=ExtResource("8_y3jn2")]
+[node name="coin4" parent="." groups=["coins"] instance=ExtResource("8_y3jn2")]
 position = Vector2(330, 78)
 
 [node name="music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_yur6x")
+volume_db = -10.667
 autoplay = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
