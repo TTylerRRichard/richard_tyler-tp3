@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://2jxkmftufvfd"]
+[gd_scene load_steps=10 format=3 uid="uid://2jxkmftufvfd"]
 
 [ext_resource type="Script" uid="uid://1bbvusjcvc7h" path="res://scripts/main_menu.gd" id="1_bqqt6"]
 [ext_resource type="Texture2D" uid="uid://cpdmtcsqlsexv" path="res://assets/images/sprites/tilesets/grass.png" id="2_2fwvj"]
 [ext_resource type="AudioStream" uid="uid://y2na8qndnre4" path="res://assets/audio/medieval-adventure-154671.mp3" id="3_2fwvj"]
+[ext_resource type="FontFile" uid="uid://bhe81j8e1h2k6" path="res://Spritecoder_Regular.ttf" id="4_0iwki"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ekxnf"]
 
@@ -110,6 +111,21 @@ text = "Quit
 stream = ExtResource("3_2fwvj")
 volume_db = -10.295
 autoplay = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -380.0
+offset_top = 150.0
+offset_right = 370.0
+offset_bottom = 253.0
+grow_horizontal = 2
+scale = Vector2(1.03, 1.03)
+theme_override_fonts/font = ExtResource("4_0iwki")
+theme_override_font_sizes/font_size = 76
+text = "Whispering Forest"
 
 [connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
