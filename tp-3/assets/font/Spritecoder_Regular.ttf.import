@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://bhe81j8e1h2k6"
-path="res://.godot/imported/Spritecoder_Regular.ttf-b87c53d1975e2120d84c02ccedef4c64.fontdata"
+path="res://.godot/imported/Spritecoder_Regular.ttf-ce082bbecbe13bd0dd03b03b92d4b321.fontdata"
 
 [deps]
 
-source_file="res://Spritecoder_Regular.ttf"
-dest_files=["res://.godot/imported/Spritecoder_Regular.ttf-b87c53d1975e2120d84c02ccedef4c64.fontdata"]
+source_file="res://assets/font/Spritecoder_Regular.ttf"
+dest_files=["res://.godot/imported/Spritecoder_Regular.ttf-ce082bbecbe13bd0dd03b03b92d4b321.fontdata"]
 
 [params]
 
