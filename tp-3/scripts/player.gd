@@ -22,6 +22,11 @@ func _physics_process(delta):
 	player_movement(delta)
 	enemy_attack()
 	update_health()
+	
+	if Input.is_action_just_pressed("home_scene"):
+		get_tree().change_scene_to_file("res://scene/castle.tscn")
+	if Input.is_action_just_pressed("go_back"):
+		get_tree().change_scene_to_file("res://scene/world.tscn")
 
 	
 	if health <= 0:
@@ -184,9 +189,7 @@ func _on_regin_timer_timeout():
 			health = 100
 	if health <= 0: 
 		health = 0
-	
+		
 
-	
-	
 	
 	

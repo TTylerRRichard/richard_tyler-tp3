@@ -19,3 +19,8 @@ func change_scenes():
 		if global.current_scene == "leveltwo":
 			get_tree().change_scene_to_file("res://scene/world.tscn")
 			global.finish_changescenes()
+
+
+
+	
+	
